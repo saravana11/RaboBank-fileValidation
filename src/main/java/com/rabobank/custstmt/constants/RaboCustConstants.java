@@ -9,4 +9,5 @@ public class RaboCustConstants {
 	public static final String startBalance= "StartBalance";
 	public static final String mutation= "Mutation";
 	public static final String endbal= "End Balance";
+	public static final String invalidFile = "InvalidFile";
 }

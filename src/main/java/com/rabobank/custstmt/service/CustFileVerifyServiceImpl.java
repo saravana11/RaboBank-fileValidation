@@ -44,6 +44,8 @@ public class CustFileVerifyServiceImpl implements CustFileVerifyService {
 			map = XMLLogic(file);
 		} else if (RaboCustConstants.csv.equalsIgnoreCase(contentType)) {
 			map = CSVLogic(inputStream);
+		}else{
+			throw new CustStmtException(RaboCustConstants.invalidFile);
 		}
 		return map;
 	}
