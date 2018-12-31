@@ -58,7 +58,7 @@ public class CustFileVerifyServiceImpl implements CustFileVerifyService {
 private void validatenonNumericInput(String record,String fieldname,int rec) throws CustStmtException{
 	if (StringUtils.isBlank(record)) {
 		//logger.info("nonNumericInput record::::::" + record);
-		           throw new  CustStmtException("Invalid "+fieldname+" for record no "+rec);
+		          throw new  CustStmtException("Invalid "+fieldname+" for record no "+rec);
 		        }
 }
 
