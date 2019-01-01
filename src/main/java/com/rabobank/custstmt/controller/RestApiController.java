@@ -67,13 +67,19 @@ public class RestApiController {
 	 */
 	@RequestMapping(value = "/custfileverify", method = RequestMethod.POST)
 	public InvalidData custFileVerify(@RequestPart MultipartFile file)
-			throws CustStmtException {
+			throws CustStmtException{
 		Map<String, String> invalidData = null;
 		try (InputStream inputStream = file.getInputStream()) {
 			String contentType = getSubTypeOf(file.getContentType());
 			invalidData = custFileVerifyService.custFileVerify(file,
 					contentType, inputStream);
-		} catch (Exception exception) {
+		}catch (CustStmtException exception) {
+			//exception.printStackTrace();
+			throw new CustStmtException(exception.getMessage());
+			// exception.printStackTrace();
+		}
+		catch (Exception exception) {
+			exception.printStackTrace();
 			throw new CustStmtException(exception.getMessage());
 			// exception.printStackTrace();
 		}
